@@ -1,0 +1,376 @@
+:root {
+  --light: #f8f9fa;
+  --dark: #212529;
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --gradient-primary: linear-gradient(135deg, #6366f1, #4f46e5);
+  --gradient-accent: linear-gradient(135deg, #f59e0b, #d97706);
+  --border-radius: 12px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+  --gray-light: #e9ecef;
+  --gray: #6c757d;
+  --transition-normal: all 0.3s ease;
+  --transition-fast: all 0.2s ease;
+}
+
+.presentation {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--light);
+}
+
+.slide-container {
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+  height: 100vh;
+}
+
+.slide {
+  height: 100vh;
+  width: 100vw;
+  padding: 4rem 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' ...");
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.slide.active .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.slide-content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* Dekoratīvie elementi */
+.slide::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  right: -150px;
+  width: 400px;
+  height: 400px;
+  background: var(--gradient-primary);
+  opacity: 0.05;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.slide:nth-child(even)::after {
+  top: -150px;
+  left: -150px;
+  right: auto;
+  bottom: auto;
+  background: var(--gradient-accent);
+}
+
+header {
+  margin-bottom: 6rem;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 6px;
+  background: var(--gradient-primary);
+  border-radius: 3px;
+  animation: lineGrow 0.6s ease forwards;
+}
+
+@keyframes lineGrow {
+  from { transform: translateX(-50%) scaleX(0); }
+  to { transform: translateX(-50%) scaleX(1); }
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left; /* Noklusējuma izlīdzināšana pa kreisi visiem virsrakstiem */
+}
+
+h1 {
+  font-size: 3.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards 0.3s;
+}
+
+h2 {
+  font-size: 3rem;
+  color: var(--dark);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards 0.5s;
+}
+
+h3 {
+  font-size: 2rem;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+p, li {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  text-align: left; /* Noklusējuma izlīdzināšana pa kreisi visam tekstam */
+}
+
+ul, ol {
+  margin-left: 2rem;
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.9rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+/* "Title" slaida stils (teksts pa kreisi, bez attēla) */
+.slide.title {
+  align-items: flex-start;
+}
+
+.slide.title section {
+  align-items: flex-start;
+  padding: 0;
+}
+
+.slide.title .explanation-content {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: 1000px;
+  width: 100%;
+  text-align: left;
+}
+
+.slide.title .explanation-content h3 {
+  text-align: left;
+}
+
+.slide.title .explanation-content ul {
+  text-align: left;
+}
+
+.slide.title .explanation-content li {
+  display: block;
+}
+
+/* "BlogExample" slaida stils (attēls pa kreisi, skaidrojums pa labi bez containera, kā "Online Shopping") */
+.slide.blog-example {
+  align-items: flex-start; /* Noņem centrēšanu "BlogExample" slaidos */
+}
+
+.slide.blog-example section {
+  display: flex;
+  flex-direction: row;
+  gap: 6rem;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.slide.blog-example section img {
+  flex: 0 0 40%; /* Attēla platums 40%, kā "Online Shopping" piemērā */
+  max-width: 100%;
+  height: 40%; /* Attēla augstums 40%, kā "Online Shopping" piemērā */
+  border-radius: var(--border-radius);
+  object-fit: contain;
+}
+
+/* Noņemts skaidrojuma containers, teksts tieši lapā, kā "Online Shopping" */
+.slide.blog-example .explanation-text {
+  flex: 0 0 60%; /* Teksta platums 60%, lai kompensētu attēla izmēru */
+  padding: 0; /* Noņem padding, jo nav containera */
+  width: 100%;
+  text-align: center; /* Centrēts teksts, kā "Online Shopping" */
+}
+
+.slide.blog-example .explanation-text h3 {
+  margin-bottom: 2rem;
+  text-align: center; /* Centrēts virsraksts */
+}
+
+.slide.blog-example .explanation-text ul {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: center; /* Centrēts saraksts */
+}
+
+.slide.blog-example .explanation-text li {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  display: inline-block; /* Lai punkti būtu centrēti, bet teksts saglabātu struktūru */
+  text-align: left; /* Teksts iekš saraksta punkta paliek pa kreisi */
+}
+
+.slide.blog-example .explanation-text li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.animated-list li {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: fadeInRight 0.5s ease forwards;
+}
+
+@keyframes fadeInRight {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.highlight-box {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.numbered-step::before {
+  content: attr(data-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.btn {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+footer {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  text-align: center;
+  color: var(--gray);
+}
+
+/* Responsīvs dizains */
+@media (max-width: 1200px) {
+  .slide { padding: 3rem 6rem; }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; }
+  .slide.title section { max-width: 1100px; }
+  .slide.blog-example section { max-width: 1100px; }
+  .slide.blog-example section img { height: 35%; } /* Nedaudz samazināts augstums mazākos ekrānos */
+}
+
+@media (max-width: 900px) {
+  .slide { padding: 2rem 4rem; }
+  .two-columns { grid-template-columns: 1fr; }
+  .slide.title section {
+    align-items: flex-start;
+    padding: 0;
+  }
+  .slide.title .explanation-content { text-align: left; }
+  .slide.blog-example section {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .slide.blog-example section img, .slide.blog-example .explanation-text {
+    flex: 0 0 100%;
+  }
+  .slide.blog-example section img {
+    max-width: 100%;
+    height: auto; /* Pielāgo augstumu automātiski mazākos ekrānos */
+  }
+  .slide.blog-example .explanation-text {
+    padding: 0;
+    text-align: center; /* Saglabājam centrēšanu "BlogExample" mazākos ekrānos */
+  }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  p, li { font-size: 1.25rem; }
+}
+
+@media (max-width: 600px) {
+  .slide { padding: 2rem 2rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.3rem; }
+  p, li { font-size: 1rem; }
+  .slide.title .explanation-content { padding: 0; }
+  .slide.blog-example .explanation-text { padding: 0; }
+  .slide.blog-example .explanation-text li::before { font-size: 1.2rem; }
+}
