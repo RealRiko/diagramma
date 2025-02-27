@@ -4,7 +4,7 @@ function TitleSlide() {
   return (
     <article className="slide">
     <header>
-      <h1>Letošanas gadījumu diagramma</h1>
+      <h1>Lietošanas gadījumu diagramma</h1>
     </header>
 
   </article>
