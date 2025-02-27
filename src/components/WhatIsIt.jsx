@@ -7,7 +7,7 @@ function WhatIsIt() {
         <h2>Kas ir lietošanas gadījumu diagramma?</h2>
       </header>
       <section>
-        <p> (UML) lietošanas gadījumu diagramma var apkopot informāciju par jūsu sistēmas lietotājiem (sauktiem arī par dalībniekiem) un</p>
+        <p> (UML) Lietošanas gadījumu diagramma var apkopot informāciju par jūsu sistēmas lietotājiem (sauktiem arī par dalībniekiem) un</p>
           <p>viņu mijiedarbību ar sistēmu.</p>
         <p> Lai to izveidotu, jums būs jāizmanto specializētu simbolu un savienotāju komplekts. Efektīva lietošanas gadījumu diagramma var palīdzēt jūsu komandai apspriest un pārstāvēt:</p>
       
