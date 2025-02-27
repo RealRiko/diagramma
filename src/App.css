@@ -68,7 +68,6 @@
   z-index: 2;
 }
 
-/* Dekoratīvie elementi */
 .slide::after {
   content: '';
   position: absolute;
@@ -118,7 +117,7 @@ header::after {
 h1, h2, h3 {
   font-weight: 700;
   margin-bottom: 1rem;
-  text-align: left; /* Noklusējuma izlīdzināšana pa kreisi visiem virsrakstiem */
+  text-align: left; 
 }
 
 h1 {
@@ -156,7 +155,7 @@ h3 {
 p, li {
   font-size: 1.5rem;
   line-height: 1.8;
-  text-align: left; /* Noklusējuma izlīdzināšana pa kreisi visam tekstam */
+  text-align: left;
 }
 
 ul, ol {
@@ -180,7 +179,6 @@ ul li::before {
   gap: 4rem;
 }
 
-/* "Title" slaida stils (teksts pa kreisi, bez attēla) */
 .slide.title {
   align-items: flex-start;
 }
@@ -211,9 +209,9 @@ ul li::before {
   display: block;
 }
 
-/* "BlogExample" slaida stils (attēls pa kreisi, skaidrojums pa labi bez containera, kā "Online Shopping") */
+
 .slide.blog-example {
-  align-items: flex-start; /* Noņem centrēšanu "BlogExample" slaidos */
+  align-items: flex-start; 
 }
 
 .slide.blog-example section {
@@ -226,38 +224,37 @@ ul li::before {
 }
 
 .slide.blog-example section img {
-  flex: 0 0 40%; /* Attēla platums 40%, kā "Online Shopping" piemērā */
+  flex: 0 0 40%; 
   max-width: 100%;
-  height: 40%; /* Attēla augstums 40%, kā "Online Shopping" piemērā */
+  height: 40%; 
   border-radius: var(--border-radius);
   object-fit: contain;
 }
 
-/* Noņemts skaidrojuma containers, teksts tieši lapā, kā "Online Shopping" */
 .slide.blog-example .explanation-text {
-  flex: 0 0 60%; /* Teksta platums 60%, lai kompensētu attēla izmēru */
-  padding: 0; /* Noņem padding, jo nav containera */
+  flex: 0 0 60%; 
+  padding: 0; 
   width: 100%;
-  text-align: center; /* Centrēts teksts, kā "Online Shopping" */
+  text-align: center; 
 }
 
 .slide.blog-example .explanation-text h3 {
   margin-bottom: 2rem;
-  text-align: center; /* Centrēts virsraksts */
+  text-align: center; 
 }
 
 .slide.blog-example .explanation-text ul {
   list-style-type: none;
   padding-left: 0;
-  text-align: center; /* Centrēts saraksts */
+  text-align: center; 
 }
 
 .slide.blog-example .explanation-text li {
   position: relative;
   margin-bottom: 1.5rem;
   padding-left: 2rem;
-  display: inline-block; /* Lai punkti būtu centrēti, bet teksts saglabātu struktūru */
-  text-align: left; /* Teksts iekš saraksta punkta paliek pa kreisi */
+  display: inline-block; 
+  text-align: left; 
 }
 
 .slide.blog-example .explanation-text li::before {
@@ -325,14 +322,13 @@ footer {
   color: var(--gray);
 }
 
-/* Responsīvs dizains */
 @media (max-width: 1200px) {
   .slide { padding: 3rem 6rem; }
   h1 { font-size: 3rem; }
   h2 { font-size: 2.5rem; }
   .slide.title section { max-width: 1100px; }
   .slide.blog-example section { max-width: 1100px; }
-  .slide.blog-example section img { height: 35%; } /* Nedaudz samazināts augstums mazākos ekrānos */
+  .slide.blog-example section img { height: 35%; } 
 }
 
 @media (max-width: 900px) {
@@ -352,11 +348,11 @@ footer {
   }
   .slide.blog-example section img {
     max-width: 100%;
-    height: auto; /* Pielāgo augstumu automātiski mazākos ekrānos */
+    height: auto; 
   }
   .slide.blog-example .explanation-text {
     padding: 0;
-    text-align: center; /* Saglabājam centrēšanu "BlogExample" mazākos ekrānos */
+    text-align: center; 
   }
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }

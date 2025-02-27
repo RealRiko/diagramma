@@ -71,7 +71,7 @@ function App() {
         </div>
       </main>
       <Navigation 
-        slides={slides} // Pass the slides array
+        slides={slides}
         activeSlide={activeSlide} 
         setActiveSlide={setActiveSlide} 
       />
